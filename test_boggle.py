@@ -2,6 +2,7 @@ import unittest     #unittest framework uses classes and inherritance
                     #to create tests we create a class that iherrits from test case class and the framework
                     #then we write methods inside that class for the actual tests
 import boggle
+from string import ascii_uppercase      #26 uppercase characters A-Z
 """
 class test_boggle(unittest.TestCase):       #class that inherrits from TestCase
     def test_is_this_thing_on(self):        #method..starts with test_
@@ -36,6 +37,23 @@ class TestBoggle(unittest.TestCase):
         self.assertIn((1, 0), grid)
         self.assertIn((1, 1), grid)
         self.assertNotIn((2, 2), grid)  #assertNot in to check (2,2) is not in a 2x2 grid
+        
+        
+    def test_grid_is_filled_with_letters(self):
+        
+        #ensure that each of the coordinates in the grid contains letters
+        
+        grid = boggle.make_grid(2, 3)  #test creates grid and asserts every value in grid is uppercase
+        for letter in grid.values():
+            self.assertIn(letter, ascii_uppercase)
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
