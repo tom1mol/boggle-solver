@@ -3,5 +3,6 @@ Planning                                        https://youtu.be/gcV37CJ3qXw
 Setting Up Boggle Solver                        https://youtu.be/b0k2artb1NU
 Defining The Grid                               https://youtu.be/cUUxDUdedlo
 grid content                                    https://youtu.be/5hY7ArUguhU
+Neighboring Positions                           https://youtu.be/Mf7yppJAwsY
 
 
