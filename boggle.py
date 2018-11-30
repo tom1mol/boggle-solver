@@ -1,6 +1,8 @@
+import os               #this was added for challenge 
 from string import ascii_uppercase
 from random import choice
 
+SCRIPT_PATH = os.path.join(os.getcwd(), os.path.dirname(__file__)) #this was added for challenge
 
 def make_grid(width, height):
     
@@ -73,7 +75,7 @@ def search(grid, dictionary):    #function that accepts a grid and a dictionary
     #do_search function can be called by the search function and can call itself recursively to build up paths
     #search func starts a search by passing a single position to the do_search. this is a path of 1 letter
     #do_search function converts whatever path its given into a word and checks if is in dictionary
-    #if path makes a word its added to the paths list. whether hte path is a word or not..do_search gets 
+    #if path makes a word its added to the paths list. whether the path is a word or not..do_search gets 
     #each of the neighbours of the last letter,checks to make sure neighbouring letter isnt already 
     #in the path and then continues the searching from that letter
     #do_search could call itself 8 times for each starting position and again for each of the various neighbours
@@ -103,19 +105,30 @@ def get_dictionary(dictionary_file):
     
     #load dictionary file
     
+    if not dictionary_file.startswith('/'):                         #added this for challenge 2x2
+        #if not absolute, then make path relative to our location
+        dictionary_file = os.path.join(SCRIPT_PATH, dictionary_file)    #added this for challenge 2x2
+    
     with open(dictionary_file) as f:
         return [w.strip().upper() for w in f]
+        
+def display_words(words):
+    for word in words:
+        print(word)
+    print("Found %s words" % len(words))
     
     
 def main():
     #this is the function that will run the whole project
     
-    grid = make_grid(3, 3)
+    grid = make_grid(2, 2)  #change here from (3,3) to (2,2) to check runtimes
     dictionary = get_dictionary('words.txt')
     words = search(grid, dictionary)
-    for word in words:
-        print(word)
-    print("Found %s words" % len(words))
+    # for word in words:        this was inserted into function display_words above
+    #     print(word)
+    # print("Found %s words" % len(words))
+    
+    display_words(words)
     
 if __name__ == "__main__":  #to avoid running code when file is imported we use this if statement
                             #code within this statement will only execute when the file is run directly
