@@ -46,12 +46,36 @@ class TestBoggle(unittest.TestCase):
         grid = boggle.make_grid(2, 3)  #test creates grid and asserts every value in grid is uppercase
         for letter in grid.values():
             self.assertIn(letter, ascii_uppercase)
+            
+            
+    def test_neighbours_of_a_position(self):
+        
+        #ensure that a position has 8 neighbours
+        
+        coords = (1, 2)
+        neighbours = boggle.neighbours_of_position(coords)
+        self.assertIn((0, 1), neighbours)
+        self.assertIn((0, 2), neighbours)
+        self.assertIn((0, 3), neighbours)
+        self.assertIn((1, 1), neighbours)
+        self.assertIn((1, 3), neighbours)
+        self.assertIn((2, 1), neighbours)
+        self.assertIn((2, 2), neighbours)
+        self.assertIn((2, 3), neighbours)
         
         
+    def test_all_grid_neighbours(self):
         
+        #ensure that all grid positions have neighbours
         
-        
-        
+        grid = boggle.make_grid(2, 2)
+        neighbours = boggle.all_grid_neighbours(grid)
+        self.assertEqual(len(neighbours), len(grid))    #assert correct length of neighbours dictionary
+        for pos in grid:            #for loop will iterate through positions in the grid
+            others = list(grid)     #creates a new list from dictionarys keys. full list
+            others.remove(pos)      #minus position in question
+            self.assertListEqual(sorted(neighbours[pos]), sorted(others)) # asserts position of neighbours is 
+                                                                         #position being checked
         
         
         
