@@ -4,5 +4,8 @@ Setting Up Boggle Solver                        https://youtu.be/b0k2artb1NU
 Defining The Grid                               https://youtu.be/cUUxDUdedlo
 grid content                                    https://youtu.be/5hY7ArUguhU
 Neighboring Positions                           https://youtu.be/Mf7yppJAwsY
+Words                                           https://youtu.be/BZl1YrJ29SM
+Bringing It All Together                        https://youtu.be/T9awTMt9e8I
 
 
+python3 -m unittest  this is what we run ib the workspace to test the code
